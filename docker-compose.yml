@@ -1,0 +1,13 @@
+services:
+  wikimasters:
+    image: alitschgy/wiki-masters-script:latest
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      FORCE_COLOR: "1"
+    volumes:
+      # Must be writable by uid 1000: run `mkdir wikimasters-data` before the first start
+      - ./wikimasters-data:/data
+    # One pass per hour; add "--delay", "10" to change the pause between packs
+    command: ["--interval", "3600"]

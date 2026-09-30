@@ -1,0 +1,6 @@
+.env
+session.json
+session.tmp
+cookie.txt
+__pycache__/
+wikimasters-data
